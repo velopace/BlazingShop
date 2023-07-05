@@ -15,9 +15,9 @@ namespace BlazingShop.Server.Services.ProductService
             throw new NotImplementedException();
         }
 
-        public Task<List<Product>> GetProductsByCateogory(string categoryUrl)
+        public async Task<List<Product>> GetProductsByCateogory(string categoryUrl)
         {
-            throw new NotImplementedException();
+            return Products.Where(p => p.CategoryId == 1).ToList();
         }
 
         public List<Product> Products { get; set; } = new List<Product>
