@@ -15,6 +15,11 @@ namespace BlazingShop.Server.Services.CategoryService
         {
             return Categories;
         }
+
+        public async Task<Category> GetCategoryByUrl(string categoryUrl)
+        {
+            return Categories.FirstOrDefault(c => c.Url.Equals(categoryUrl, StringComparison.OrdinalIgnoreCase));
+        }
     }
 }
 

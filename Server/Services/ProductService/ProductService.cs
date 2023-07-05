@@ -1,23 +1,33 @@
 ﻿using System;
+using BlazingShop.Server.Services.CategoryService;
 using BlazingShop.Shared;
 
 namespace BlazingShop.Server.Services.ProductService
 {
 	public class ProductService : IProductService
 	{
+        private readonly ICategoryService _categoryService;
+
+        public ProductService(ICategoryService categoryService)
+        {
+            _categoryService = categoryService;
+        }
+
         public async Task<List<Product>> GetAllProducts()
         {
             return Products;
         }
 
-        public Task<Product> GetProduct(int id)
+        public async Task<Product> GetProduct(int id)
         {
-            throw new NotImplementedException();
+            Product product = Products.FirstOrDefault(p => p.Id == id);
+            return product;
         }
 
         public async Task<List<Product>> GetProductsByCateogory(string categoryUrl)
         {
-            return Products.Where(p => p.CategoryId == 1).ToList();
+            Category category = await _categoryService.GetCategoryByUrl(categoryUrl);
+            return Products.Where(p => p.CategoryId == category.Id).ToList();
         }
 
         public List<Product> Products { get; set; } = new List<Product>
