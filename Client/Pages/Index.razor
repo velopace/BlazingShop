@@ -24,7 +24,7 @@ else
     {
         if (CategoryUrl != null)
         {
-            category = CategoryService.Categories.FirstOrDefault(c => c.Url.ToLower().Equals(CategoryUrl.ToLower()));
+            category = CategoryService.Categories.FirstOrDefault(c => c.Url.Equals(CategoryUrl, StringComparison.OrdinalIgnoreCase));
         }
         else
         {
