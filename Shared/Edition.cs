@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text.Json.Serialization;
+
 namespace BlazingShop.Shared
 {
 	public class Edition
@@ -7,6 +9,7 @@ namespace BlazingShop.Shared
 
 		public string Name { get; set; }
 
+		[JsonIgnore]
 		public List<Product> Products { get; set; }
 	}
 }
