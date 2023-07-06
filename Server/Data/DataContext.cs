@@ -14,6 +14,8 @@ namespace BlazingShop.Server.Data
 
 		public DbSet<Product> Products { get; set; }
 
+        public DbSet<Edition> Editions { get; set; }
+
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Category>().HasData(
@@ -112,7 +114,29 @@ namespace BlazingShop.Server.Data
                     Price = 14.99m
                 }
             );
-		}
+
+            modelBuilder.Entity<Edition>().HasData(
+                new Edition { Id = 1, Name = "Default" },
+                new Edition { Id = 2, Name = "Paperback" },
+                new Edition { Id = 3, Name = "E-Book" },
+                new Edition { Id = 4, Name = "Audiobook" },
+                new Edition { Id = 5, Name = "PC" },
+                new Edition { Id = 6, Name = "PlayStation" },
+                new Edition { Id = 7, Name = "Xbox" }
+            );
+
+            modelBuilder.SharedTypeEntity<Dictionary<string, object>>("EditionProduct")
+                .HasData(
+                    new { EditionsId = 1, ProductsId = 1 },
+                    new { EditionsId = 2, ProductsId = 1 },
+                    new { EditionsId = 3, ProductsId = 1 },
+                    new { EditionsId = 1, ProductsId = 2 },
+                    new { EditionsId = 2, ProductsId = 2 },
+                    new { EditionsId = 4, ProductsId = 7 },
+                    new { EditionsId = 5, ProductsId = 7 },
+                    new { EditionsId = 6, ProductsId = 7 }
+                );
+        }
 	}
 }
 
