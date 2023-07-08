@@ -13,12 +13,6 @@ namespace BlazingShop.Shared
 
         public string Image { get; set; } = "https://via.placeholder.com/300x300";
 
-        [Column(TypeName = "decimal(18,2)")]
-        public decimal Price { get; set; }
-
-        [Column(TypeName = "decimal(18,2)")]
-        public decimal OriginalPrice { get; set; }
-
         public bool IsPublic { get; set; }
 
         public bool IsDeleted { get; set; }
@@ -27,13 +21,11 @@ namespace BlazingShop.Shared
 
         public int CategoryId { get; set; }
 
-        public List<Edition> Editions { get; set; }
+        public List<ProductVariant> Variants { get; set; } = new List<ProductVariant>();
 
         public DateTime? DateCreated { get; set; } = DateTime.Now;
 
         public DateTime? DateUpdated { get; set; }
-
-        public int Views { get; set; }
     }
 }
 
