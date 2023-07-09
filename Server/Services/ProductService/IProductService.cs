@@ -10,6 +10,8 @@ namespace BlazingShop.Server.Services.ProductService
 		Task<List<Product>> GetProductsByCateogory(string categoryUrl);
 
 		Task<Product> GetProduct(int id);
+
+		Task<List<Product>> SearchProducts(string searchText);
 	}
 }
 
