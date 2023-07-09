@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>d7f3ca96-0b41-4fcd-8b89-eecb4d37593a</UserSecretsId>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' ">
@@ -17,6 +18,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.7" PrivateAssets="all" />
     <PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
     <PackageReference Include="Blazored.Toast" Version="4.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.8" />
   </ItemGroup>
 
   <ItemGroup>
