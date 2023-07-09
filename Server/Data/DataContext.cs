@@ -16,6 +16,8 @@ namespace BlazingShop.Server.Data
 
         public DbSet<Edition> Editions { get; set; }
 
+        public DbSet<Stats> Stats { get; set; }
+
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
             modelBuilder.Entity<ProductVariant>()
