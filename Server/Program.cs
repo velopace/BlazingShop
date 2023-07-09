@@ -1,5 +1,6 @@
 ﻿using BlazingShop.Server.Data;
 using BlazingShop.Server.Services.CategoryService;
+using BlazingShop.Server.Services.PaymentService;
 using BlazingShop.Server.Services.ProductService;
 using BlazingShop.Server.Services.StatsService;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -18,6 +19,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IStatsService, StatsService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 
 var app = builder.Build();
 

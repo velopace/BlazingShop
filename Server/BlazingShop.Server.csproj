@@ -16,6 +16,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.8" />
+    <PackageReference Include="Stripe.net" Version="41.23.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +31,7 @@
     <None Remove="Services\CategoryService\" />
     <None Remove="Services\ProductService\" />
     <None Remove="Data\" />
+    <None Remove="Services\PaymentService\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -37,5 +39,6 @@
     <Folder Include="Services\CategoryService\" />
     <Folder Include="Services\ProductService\" />
     <Folder Include="Data\" />
+    <Folder Include="Services\PaymentService\" />
   </ItemGroup>
 </Project>
