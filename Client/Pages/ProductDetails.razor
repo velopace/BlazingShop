@@ -5,7 +5,7 @@
 @inject ICartService CartService
 
 <div class="views">
-    <i class="oi oi-eye"></i> @product.Views.ToString("0##");
+    <i class="oi oi-eye"></i> @GetViewString()
 </div>
 <div class="media">
     <div class="media-img-big-wrapper mr-2">
@@ -83,6 +83,18 @@
         cartItem.ProductTitle = product.Title;
 
         await CartService.AddToCart(cartItem);
+    }
+
+    private string GetViewString()
+    {
+        if (product.Views > 1000000)
+            return $"{((float)product.Views / 1000000).ToString("#.##")}M";
+        if (product.Views > 10000)
+            return $"{((float)product.Views / 1000).ToString("#")}K";
+        if (product.Views > 1000)
+            return $"{((float)product.Views / 1000).ToString("#.##")}K";
+
+        return product.Views.ToString("0##");
     }
 }
 
